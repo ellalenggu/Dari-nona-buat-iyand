@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Iyand 🤍</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Georgia', serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(to top,#001f3f 0%,#003f7f 30%,#0074D9 60%,#00bfff 100%);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* SUN */
+.sun{
+position:absolute;
+top:5%;
+left:50%;
+transform:translateX(-50%);
+width:220px;
+height:220px;
+background:radial-gradient(circle,#fff6b7,#ffcc00,#ff8800,transparent 70%);
+border-radius:50%;
+filter:blur(10px);
+opacity:0.9;
+}
+
+/* LIGHT REFLECTION */
+.reflection{
+position:absolute;
+top:30%;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:300px;
+background:linear-gradient(to bottom,rgba(255,255,255,0.7),transparent);
+filter:blur(20px);
+opacity:0.6;
+}
+
+/* WAVES */
+.wave1,.wave2{
+position:fixed;
+bottom:0;
+width:200%;
+height:150px;
+border-radius:45%;
+}
+
+.wave1{
+background:rgba(0,0,80,0.7);
+animation:waveMove1 8s linear infinite;
+}
+
+.wave2{
+background:rgba(0,50,120,0.9);
+animation:waveMove2 12s linear infinite;
+}
+
+@keyframes waveMove1{
+from{transform:translateX(0);}
+to{transform:translateX(-50%);}
+}
+
+@keyframes waveMove2{
+from{transform:translateX(-50%);}
+to{transform:translateX(0);}
+}
+
+/* Opening */
+.opening{
+position:absolute;
+text-align:center;
+color:white;
+z-index:5;
+}
+
+.openBtn{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#0072ff;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* Letter */
+.letterContainer{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+padding:40px 20px;
+overflow:auto;
+transform:translateY(100%);
+transition:1.2s ease;
+opacity:0;
+z-index:10;
+}
+
+.letterContainer.show{
+transform:translateY(0);
+opacity:1;
+}
+
+.card{
+position:relative;
+max-width:600px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+overflow:hidden;
+}
+
+.bubble{
+position:absolute;
+bottom:-60px;
+background:rgba(0,191,255,0.3);
+border-radius:50%;
+animation:rise linear infinite;
+}
+
+@keyframes rise{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+.photo{
+width:100%;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.typing{
+white-space:pre-wrap;
+color:#002244;
+}
+
+/* FINAL MESSAGE */
+.finalMessage{
+display:none;
+margin-top:20px;
+padding:20px;
+background:#cceeff;
+border-radius:20px;
+color:#002244;
+animation:fadeIn 2s forwards;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sun"></div>
+<div class="reflection"></div>
+<div class="wave1"></div>
+<div class="wave2"></div>
+
+<div class="opening" id="opening">
+<h1>For you my darling 🌊🤍</h1>
+<p>Seperti laut, perasaanku dalam dan tenang...</p>
+<button class="openBtn" onclick="openLetter()">Buka Surat</button>
+</div>
+
+<div class="letterContainer" id="letter">
+<div class="card" id="card">
+
+<h2 style="text-align:center;color:#003366;">For my beloved boyfriend 💙</h2>
+<br>
+<p class="typing" id="text"></p>
+
+<br><br>
+
+<!-- INI BAGIAN YANG SUDAH DIGANTI -->
+<audio id="finalSong" autoplay style="display:none;">
+<source src="lagu-spesial.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<br><br>
+
+<audio id="music" loop>
+<source src="Glenn Fredly - My Everything Lirik.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="waveSound" loop>
+<source src="ombak.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+</div>
+
+<script>
+function openLetter(){
+document.getElementById("opening").style.opacity="0";
+setTimeout(()=>{
+document.getElementById("letter").classList.add("show");
+document.getElementById("music").play();
+document.getElementById("waveSound").play();
+startTyping();
+createBubbles();
+},800);
+}
+
+const message = `Nona Minta Maaf Sekali karena di hari Valentine itu nona tidak ada untuk iyand.
+Seharusnya nona tidak ikut nona punya kawan keluar.
+
+Seperti laut yang selalu kembali ke pantai,
+nona juga akan selalu kembali ke iyand.
+
+Iyand adalah rumahnya nona.
+Iyand segala-segalanya buat nona.
+Iyand adalah tujuannya nona.
+
+Alasan nona pilih lagu “My Everything” dari Glenn Fredly 
+ini menggambarkan cinta yang tulus, dalam, dan penuh komitmen kepada seseorang yang dianggap 
+sebagai segalanya dalam hidup—sumber kebahagiaan, kekuatan, dan alasan untuk tetap bertahan.
+lagu ini menggambarkan perasaan nona ke iyand sampai kapan pun.
+
+Nona sayang sekali dengan iyand, 
+I love you now and forever and this love will never end, you are everything to me. 🤍`;
+
+let i = 0;
+function startTyping(){
+const textElement = document.getElementById("text");
+let interval = setInterval(()=>{
+if(i < message.length){
+textElement.innerHTML += message.charAt(i);
+i++;
+}else{
+clearInterval(interval);
+}
+},40);
+}
+
+function createBubbles(){
+const card = document.getElementById("card");
+setInterval(()=>{
+let bubble = document.createElement("div");
+bubble.className="bubble";
+
+let size = Math.random()*50+10;
+bubble.style.width=size+"px";
+bubble.style.height=size+"px";
+bubble.style.left=Math.random()*100+"%";
+bubble.style.animationDuration=(Math.random()*5+5)+"s";
+
+card.appendChild(bubble);
+setTimeout(()=>bubble.remove(),10000);
+},600);
+}
+
+function forgiveMe(){
+document.getElementById("finalMsg").style.display="block";
+document.getElementById("finalSong").play();
+}
+</script>
+
+</body>
+</html>
